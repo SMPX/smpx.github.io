@@ -22,6 +22,18 @@
     }
 }
 
+window.utils = {
+    // https://sweetalert.js.org/docs/
+    mess: function (Title, Text, Icon, Button) {
+        swal({
+            title: Title,
+            text: Text,
+            icon: Icon, // "warning" "error" "success" "info"
+            button: Button,
+        });
+    }
+}
+
 window.ck = {
 
     editor: null,
