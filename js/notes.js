@@ -23,9 +23,9 @@
 }
 
 window.utils = {
-    // https://sweetalert.js.org/docs/
+    // https://sweetalert2.github.io/
     mess: function (Title, Text, Icon, Button) {
-        swal({
+        Swal.fire({
             title: Title,
             text: Text,
             icon: Icon, // "warning" "error" "success" "info"
