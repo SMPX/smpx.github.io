@@ -76,7 +76,11 @@ window.ck = {
     },
 
     GetEditorData: function () {
-        return ck.editor.getData();
+        let content = ck.editor.getData();
+        console.log(content.length)
+        if (content.length > 1310000)
+            return "@#@";
+        return content;
     },
 
     SetEditorData: function (data) {
