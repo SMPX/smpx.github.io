@@ -38,58 +38,31 @@ window.ck = {
 
     editor: null,
 
-    CreateEditor: function (id, value) {
+    CreateEditor: function (id) {
         var element = document.getElementById(id);
         if (element == null)
             return false;
 
-        if (this.editor != undefined) {
-            this.editor.destroy();
-        }
+        //Это все что включено в сборку
+        //["blockQuote", "bold", "ckfinder", "heading", "imageTextAlternative", "imageStyle:full", "imageStyle:side", "imageUpload", "indent", "outdent", "italic", "link", "numberedList", "bulletedList", "mediaEmbed", "undo", "redo", "insertTable", "tableColumn", "tableRow", "mergeTableCells", "alignment:left", "alignment:right", "alignment:center", "alignment:justify", "alignment", "code", "codeBlock", "fontBackgroundColor", "fontColor", "fontSize", "fontFamily", "highlight:yellowMarker", "highlight:greenMarker", "highlight:pinkMarker", "highlight:blueMarker", "highlight:redPen", "highlight:greenPen", "removeHighlight", "highlight", "horizontalLine", "MathType", "ChemType", "pageBreak", "removeFormat", "specialCharacters", "strikethrough", "subscript", "superscript", "tableCellProperties", "tableProperties", "underline"]
+        //console.log(Array.from(editor.ui.componentFactory.names()));
 
         ClassicEditor.create(document.querySelector('#' + id),
             {
                 toolbar:
                 {
                     items: [
-                        "removeFormat",
-                        "bold",
-                        "italic",
-                        "strikethrough",
-                        "subscript",
-                        "superscript",
-                        "underline",
-                        "fontBackgroundColor",
-                        "fontColor",
-                        "fontFamily",
-                        "fontSize",
-                        "heading",
+                        "bold", "italic", "strikethrough", "subscript", "superscript", "underline",
+                        "fontBackgroundColor", "fontColor", "fontSize", "fontFamily", "heading",
+                        "removeFormat", "blockQuote", "imageStyle:full", "imageStyle:side", "imageUpload",
+                        "indent", "outdent", "link", "numberedList", "bulletedList", "mediaEmbed", "specialCharacters", 
+                        "undo", "redo",
+                        "insertTable", "tableColumn", "tableRow", "mergeTableCells", "tableCellProperties", "tableProperties",
                         "alignment",
-                        "undo",
-                        "redo",
-                        "blockQuote",
-                        "imageTextAlternative",
-                        "imageStyle:full",
-                        "imageStyle:side",
-                        "imageUpload",
-                        "indent",
-                        "outdent",
-                        "link",
-                        "numberedList",
-                        "bulletedList",
-                        "mediaEmbed",
-                        "insertTable",
-                        "tableColumn",
-                        "tableRow",
-                        "mergeTableCells",
-                        "tableCellProperties",
-                        "tableProperties",
-                        "selectAll",
-                        "horizontalLine",
-                        "code",
-                        "codeBlock"
+                        "code", "codeBlock",
+                        "horizontalLine"
                     ],
-                    viewportTopOffset: 30,
+                    //viewportTopOffset: 30,
                     shouldNotGroupWhenFull: true
                 }
             })
@@ -99,11 +72,11 @@ window.ck = {
             .catch(error => {
                 console.error(error);
             });
+        return true;
     },
 
     GetEditorData: function () {
         let content = ck.editor.getData();
-        console.log(content.length)
         if (content.length > 1310000)
             return "@#@";
         return content;
