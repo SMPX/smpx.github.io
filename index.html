@@ -1,28 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html>
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="referrer" content="no-referrer" />
     <title>Notes</title>
     <base href="/" />
-    <link rel="stylesheet" href="css/app.css" />
+    <link href="css/site.css" rel="stylesheet" />
 </head>
 
 <body>
-    <div id="app">
-        <svg class="loading-progress">
-            <circle r="40%" cx="50%" cy="50%" />
-            <circle r="40%" cx="50%" cy="50%" />
-        </svg>
-        <div class="loading-progress-text"></div>
-    </div>
-
-    <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="." class="reload">Reload</a>
-        <span class="dismiss">🗙</span>
-    </div>
+    <app>
+        <div class="parent">
+            <span uk-spinner="ratio: 2" class="spinner">
+            </span>
+        </div>
+    </app>
     <script src="js/ckeditor.js"></script>
     <script src="js/sweetalert2.js"></script>
     <script src="js/notes.js"></script>
